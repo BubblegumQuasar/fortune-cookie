@@ -17,7 +17,7 @@
 import webapp2
 import random
 
-class MainHandler(webapp2.RequestHandler):
+class MainHandler[webapp2.RequestHandler]:
     def get(self):
         header="<h1>Fortune Cookie</h1>"
         lucky_number = random.randint(1,100)
@@ -25,6 +25,11 @@ class MainHandler(webapp2.RequestHandler):
         number_paragraph = '<p>' + number_sentence + '</p>'
         self.response.write(header + number_paragraph)
 
+#class LoginHandler[webapp2.RequestHandler]:
+#    def get(self):
+#        self.response.write("Thanks for trying to login!")
+
 app = webapp2.WSGIApplication([
-    ('/', MainHandler)
+    ('/', MainHandler)#,
+#    ('/login', LoginHandler)
 ], debug=True)
